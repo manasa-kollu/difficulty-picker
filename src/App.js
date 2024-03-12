@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import s from "./style.module.css";
+import DisplayDifficulty from "./components/DisplayDifficulty/DisplayDifficulty";
+import MenuList from "./components/MenuList/MenuList";
+import { useState } from "react";
 
 function App() {
+  const [currentDifficulty, setCurrentDiffficulty] = useState("Insane");
+
+  const ChangeDifficulty = (difficulty) => {
+    setCurrentDiffficulty(difficulty);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Select your React Difficulty Level</h1>
+      <div className={s.workspace}>
+        <MenuList
+          onItemClick={ChangeDifficulty}
+          difficulty={currentDifficulty}
+        />
+        <DisplayDifficulty difficulty={currentDifficulty} />
+      </div>
     </div>
   );
 }

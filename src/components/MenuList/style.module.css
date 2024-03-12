@@ -1,0 +1,10 @@
+.container {
+  height: 250px;
+  width: 250px;
+  border: solid 3px grey;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: space-evenly;
+}
